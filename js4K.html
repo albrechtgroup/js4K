@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Java Script For Kids Excercises</title>
+	</head>
+	<body>
+		<h1>***JS4K Title***</h1>
+		<h2 id="main-heading">"Hello World!"</h2>
+		<p>
+			Welcome to My <em>Experiment</em> <strong>Webpage</strong>.
+		</p>
+		<p>
+			Lets add another <strong><em>Paragraph</em></strong>.
+		</p>
+		<p>
+			<a href="www.CoWebsite.com" title="My Co. Website.">Albrecht Enterprises Website </a>For further Co. Details.
+		</p>
+
+		<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+		<script>
+
+			//////////  ***FUNCTIONS
+
+			var ourFirstFunction = function () {
+				console.log("Hello World!!!");
+			};
+			//// calling the above function below
+			ourFirstFunction();
+
+
+			var name = "Andy Albrecht";
+			console.log("Hello " + name);
+
+			if (name.length > 7) {
+				console.log("Welcome Mr.Albrecht, Your LogIn is Confirmed.");
+			}
+
+
+
+			var sayHello = function (name) {
+				console.log("Hello " + name + "!");
+			};
+			//// calling the above function below
+			sayHello("Andrew Watkins Albrecht");
+			sayHello("John Doe");
+			sayHello("Etc., Etc.");
+
+
+			var drawCats = function (howManyTimes) {
+				for (var i = 0; i < howManyTimes; i++) {
+					console.log(i + " =^.^=");
+				}
+			};
+			drawCats(13);
+			drawCats(23);
+
+
+
+			//  *** A WHILE loop
+
+			var sheepCounted = 0;
+			while (sheepCounted < 10) {
+				console.log("I have Counted " + sheepCounted + " sheep!");
+				sheepCounted++;
+			}
+			console.log("ZZZZZZZZAfterWHILELoopRuns");
+
+
+
+
+			// *** A FOR Loop  *Same outcome as Above*
+
+			for (var sheepCounted = 0; sheepCounted < 10; sheepCounted++) {
+				console.log("I have counted " + sheepCounted + " sheep!");
+			}
+			console.log("ZZZZZZZZAfterFORLoopRuns");
+
+
+
+			var timesToSayHello = 3;
+			for (var i = 0; i < timesToSayHello; i++) {
+				console.log("Hello!");
+			}
+
+
+
+
+			//  *** Using FOR loops w/ Arrays
+
+			var rcVehicles = ["Slash-Ultimate", "Jeep-Rubicon", "Axial-Poison Spyder", "Slash-Raptor"];
+			for (var i = 0; i < rcVehicles.length; i++) {
+				console.log("This garage contains a " + rcVehicles[i] + ".");
+			}
+
+			alert("This concludes the Vehicle List");
+
+
+
+
+			//   ***Using FOR Loops with Strings
+
+			var name = "Andy";
+			for (var i = 0; i < name.length; i++) {
+				console.log("My name contains the letter " + name[i] + ".");
+			}
+
+
+			//  ***Playing in the DOM*** Advanced JS Section
+
+				var headingElement = document.getElementById("main-heading");
+				console.log(headingElement.innerHTML);
+
+				///// *** Replacing the Heading
+
+				var newHeadingText = prompt("Please Provide New Heading:");
+				headingElement.innerHTML = newHeadingText;
+
+
+				// // ***Replacing the Heading using JQUERY
+
+				var newHeadingText = prompt("Please provide a new Heading:");
+				$("#main-heading").text(newHeadingText);
+
+
+
+
+
+				// // ***JQuery adding a paragraph
+
+
+				$("body").append("<p>This is a JQuery added paragraph</p>");
+
+
+
+				for (var i = 0; i < 3; i++) {
+					var hobby = prompt("Tell me one of your hobbies!");
+					$("body").append("<p>" + hobby + "</p>");
+				}
+
+
+				// // ***JQuery *fadeOut* 7 sec., *fadeIn* 10 sec.
+
+				$("h1").text("This Title will fadeOut,. then fadeIn using JQuery").fadeOut(7000).fadeIn(10000);
+
+
+				// //  ***JQuery  *slideUP* 3 sec., *slideDown* 3 sec.
+
+
+				$("h1").slideUp(3000).slideDown(3000);
+
+
+				// // *** Interactive Programming *setTimeout*
+
+				var timeUp = function () {
+					alert("30 Seconds is Up!");
+				};
+				setTimeout(timeUp, 30000);
+
+
+				///////  *** Using setInterval
+				var counter = 1;
+
+				var printMessage = function () {
+					console.log("You have been staring at your console for " + counter + " seconds..");
+					counter++;
+				}
+
+				var intervalId = setInterval(printMessage, 1000);
+				///////////// prints the message in the console forever until cleared, Below..
+
+				clearInterval(intervalId);
+
+
+
+///////  Why does this run over evrything? (before $("h1"))...
+				// $("p").slideUp(3000).slideDown(3000);
+
+
+
+		</script>
+	</body>
+</html>
+1

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cars</title>
+  </head>
+  <body>
+
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+    <script>
+
+      // var dog = {
+      //   name: "Pancake",
+      //   legs: 4,
+      //   isAwesome: true
+      // };
+      // dog.bark = function() {
+      //   console.log("Woof woof! My name is " + this.name + "!");
+      // }
+      // dog.age = 7;
+      // dog.bark();
+
+      //////
+
+      // var speak = function() {
+      //   console.log(this.sound + "! My name is " + this.name + "!");
+      // };
+      //
+      // var cat = {
+      //   sound: "Meow",
+      //   name: "Mittens",
+      //   speak: speak
+      // };
+      // cat.speak();
+      //
+      // var pig = {
+      //   sound: "Oink",
+      //   name: "Charlie",
+      //   speak: speak
+      // };
+      //
+      // var horse = {
+      //   sound: "Neigh",
+      //   name: "Bruno",
+      //   speak: speak
+      // };
+      // pig.speak();
+      // horse.speak();
+
+      //////  *CONSTRUCTOR FUNCTIONS* Car CONSTRUCTOR
+
+      var Car = function (x, y) {
+        this.x = x;
+        this.y = y;
+      };
+
+      //
+      // var drawCar = function(car) {
+      //   var carHtml = '<img src="http://nostarch.com/images/car.png">';
+      //
+      //   var carElement = $(carHtml);
+      //
+      //   carElement.css({
+      //     position: "absolute",
+      //     left: car.x,
+      //     top: car.y
+      //   });
+      //
+      //   $("body").append(carElement);
+      // };
+      //
+      // var tesla = new Car(10, 20);
+      // var nissan = new Car(100, 200);
+      //
+      // drawCar(tesla);
+      // drawCar(nissan);
+
+      ////////
+
+      Car.prototype.draw = function () {
+        var carHtml = '<img src="http://nostarch.com/images/car.png">';
+
+        this.carElement = $(carHtml);
+
+        this.carElement.css({
+          position: "absolute",
+          left: this.x,
+          top: this.y
+        });
+
+        $("body").append(this.carElement);
+      };
+
+      var tesla = new Car(10, 20);
+      var nissan = new Car(100, 200);
+
+      tesla.draw();
+      nissan.draw();
+
+
+      Car.prototype.moveRight = function () {
+        this.x += 5;
+
+        this.carElement.css({
+          left: this.x,
+          top: this.y
+        });
+      };
+
+      tesla.moveRight();
+      tesla.moveRight();
+      tesla.moveRight();
+
+    </script>
+
+  </body>
+</html>

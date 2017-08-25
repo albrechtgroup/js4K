@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Js for kids Object Otiented Prog</title>
+  </head>
+  <body>
+
+    <h1>JS4K</h1>
+
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+    <script>
+
+    // ///////////////  Simple Object
+      var dog = {
+        name: "Pancake",
+        legs: 4,
+        isAwesome: true
+      };
+      dog.bark = function() {
+        console.log("Woof woof! My name is " + this.name + "!");
+      };
+
+    ////// Adding a property to the dog object using dot notation*   .age   And a function .bark
+      dog.age = 7;
+      dog.bark();
+
+
+      //////////////  Sharing a method between multiple objects*
+      var speak = function() {
+        console.log(this.sound + "! My name is " + this.name + "!");
+      };
+
+      var cat = {
+        sound: "Meow",
+        name: "Mittens",
+        speak: speak
+      };
+      cat.speak();
+
+      var pig = {
+        sound: "Oink",
+        name: "Charlie",
+        speak: speak
+      };
+
+      var horse = {
+        sound: "Neigh",
+        name: "Bruno",
+        speak: speak
+      };
+      cat.speak();
+      pig.speak();
+      horse.speak();
+
+
+
+    ////////////////////////////////////////////////////
+    //   //////  *CONSTRUCTOR FUNCTIONS* Car CONSTRUCTOR
+
+      var Car = function (x, y) {
+        this.x = x;
+        this.y = y;
+      };
+
+
+      var drawCar = function (car) {
+        var carHtml = '<img src="http://nostarch.com/images/car.png">';
+
+        var carElement = $(carHtml);
+
+        carElement.css({
+          position: "absolute",
+          left: car.x,
+          top: car.y
+        });
+
+        $("body").append(carElement);
+      };
+
+
+      var porche = new Car(10, 20);
+      var mercedes = new Car(100, 200);
+
+      drawCar(porche);
+      drawCar(mercedes);
+
+
+      //////////// *More Object Oriented way to draw our cars, Below..
+      ////////////////  Customizing Objects with Prototypes**
+
+
+      var Car = function (x, y) {
+        this.x = x;
+        this.y = y;
+      };
+
+      Car.prototype.draw = function () {
+        var carHtml = '<img src="http://nostarch.com/images/car.png">';
+
+        this.carElement = $(carHtml);
+
+        this.carElement.css({
+          position: "absolute",
+          left: this.x,
+          top: this.y
+        });
+
+        $("body").append(this.carElement);
+      };
+
+      var porche = new Car(70, 70);
+      var mercedes = new Car(300, 400);
+
+      porche.draw();
+      mercedes.draw();
+
+
+
+
+    </script>
+
+  </body>
+</html>
